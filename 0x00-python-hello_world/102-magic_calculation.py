@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import magic
+import magicc
 import dis
 
 
-dis.dis(magic.magic_calculation)
+dis.dis(magicc.magic_calculation)
