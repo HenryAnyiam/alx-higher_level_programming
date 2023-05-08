@@ -1,0 +1,2 @@
+#!/bin/bash
+cat $PYFILE > $PYFILE'c' && chmod u+x $PYFILE'c' && echo "Compiling main.py ..."
