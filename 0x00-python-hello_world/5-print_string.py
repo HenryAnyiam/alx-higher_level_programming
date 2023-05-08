@@ -1,5 +1,4 @@
 #!/usr/bin/python3
 str = "Holberton School"
-triple = f"{str * 3}"
-split = f"{str[:10]}"
-print(f"{triple:s}\n{split:s}")
+triple = f"{3 * str}\n{str[0:10]}"
+print(triple)
