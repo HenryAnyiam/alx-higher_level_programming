@@ -4,7 +4,7 @@ if __name__ == "__main__":
     length = len(argv) - 1
     a = ':'
     if length == 0:
-        a = '.'
+        a = 's.'
     if length > 1:
         a = 's:'
     print("{} argument{}".format(length, a))
