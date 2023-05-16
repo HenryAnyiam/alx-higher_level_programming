@@ -1,6 +1,25 @@
 #include "lists.h"
 
 /**
+ * addnode - add new node to beginning of a linked list
+ * @head: start of linked list
+ * @n: integer
+ * )
+ * Return: Null or Head to modified node
+ */
+listint_t *addnode(listint_t **head, const int n)
+{
+	listint_t *new = malloc(sizeof(listint_t));
+
+	if (new == NULL)
+		return (NULL);
+	new->n = n;
+	new->next = *head;
+	*head = new;
+	return (*head);
+}
+
+/**
  * is_palindrome - checks if a list is a palindrome
  * @head: pointer to first node
  * )
@@ -10,28 +29,27 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *count = *head;
 	listint_t *check = *head;
-	int i, j, k = 0, len = 0;
-	long int total_1 = 0, total_2 = 0;
+	listint_t *comp = NULL;
+	listint_t *comp_head;
 
 	if (*head == NULL)
 		return (1);
 	while (count)
 	{
+		comp = addnode(&comp, count->n);
 		count = count->next;
-		len++;
 	}
-	i = (int) len / 2;
-	j = (len - i);
+	comp_head = comp;
 	while (check)
 	{
-		if (k < i)
-			total_1 += check->n;
-		if (k >= j)
-			total_2 += check->n;
+		if (comp->n != check->n)
+		{
+			free(comp_head);
+			return (0);
+		}
+		comp = comp->next;
 		check = check->next;
-		k++;
 	}
-	if (total_1 == total_2)
-		return (1);
-	return (0);
+	free(comp_head);
+	return (1);
 }
