@@ -30,7 +30,7 @@ int is_palindrome(listint_t **head)
 	listint_t *count = *head;
 	listint_t *check = *head;
 	listint_t *comp = NULL;
-	listint_t *comp_head;
+	listint_t *comp_head = NULL;
 
 	if (*head == NULL)
 		return (1);
@@ -44,12 +44,12 @@ int is_palindrome(listint_t **head)
 	{
 		if (comp->n != check->n)
 		{
-			free(comp_head);
+			free_listint(comp_head);
 			return (0);
 		}
 		comp = comp->next;
 		check = check->next;
 	}
-	free(comp_head);
+	free_listint(comp_head);
 	return (1);
 }
