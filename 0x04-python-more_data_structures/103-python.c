@@ -40,7 +40,7 @@ void print_python_list(PyObject *p)
 	Py_ssize_t length;
 	Py_ssize_t alloc;
 	PyObject *obj;
-	int i;
+	int i, hold;
 
 	if PyList_CheckExact(p)
 	{
@@ -54,6 +54,8 @@ void print_python_list(PyObject *p)
 			obj = PyList_GET_ITEM(p, i);
 			printf("Element %d: ", i);
 			printf("%s\n", (((PyObject *)(obj))->ob_type)->tp_name);
+			if (strcmp(((((PyObject *)(obj))->ob_type)->tp_name), "bytes") == 0)
+				print_python_bytes(obj);
 		}
 	}
 }
