@@ -8,7 +8,7 @@ def weight_average(my_list=[]):
         for i in my_list:
             if type(i) != tuple:
                 return 0
-            if type(i[0]) != int != type(i[1]):
+            if not isinstance(i[0], int) and not isinstance(i[1], int):
                 return 0
             if len(i) != 2:
                 return 0
