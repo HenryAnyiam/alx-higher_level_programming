@@ -9,7 +9,7 @@
 void print_python_bytes(PyObject *p)
 {
 	Py_ssize_t length;
-	int num = 10, i;
+	int num = 10, i, hold;
 
 	printf("[.] bytes object info\n");
 	if PyBytes_CheckExact(p)
@@ -22,6 +22,9 @@ void print_python_bytes(PyObject *p)
 		printf("  first %i bytes: ", num);
 		for (i = 0; i < num; i++)
 		{
+			hold = PyBytes_AsString(p)[i];
+			if (i == 9)
+				hold = '\0';
 			printf("%02x", PyBytes_AsString(p)[i]);
 			if (i < (num - 1))
 				printf(" ");
