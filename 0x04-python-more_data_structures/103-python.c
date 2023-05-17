@@ -19,21 +19,16 @@ void print_python_bytes(PyObject *p)
 		printf("  trying string: %s\n", PyBytes_AsString(p));
 		if (length < 10)
 			num = length + 1;
-		printf("  first %i bytes: ", num);
+		printf("  first %i bytes:", num);
 		for (i = 0; i < num; i++)
 		{
 			hold = PyBytes_AsString(p)[i];
-			if (i == 9)
-				hold = '\0';
-			printf("%02x", hold);
-			if (i < (num - 1))
-				printf(" ");
-			else
-				printf("\n");
+			printf(" %02x", hold);
 		}
+		printf("\n");
 	}
 	else
-		printf(" [ERROR] Invalid Bytes Object\n");
+		printf("  [ERROR] Invalid Bytes Object\n");
 }
 
 /**
