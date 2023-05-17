@@ -40,7 +40,7 @@ void print_python_list(PyObject *p)
 	Py_ssize_t length;
 	Py_ssize_t alloc;
 	PyObject *obj;
-	int i, hold;
+	int i;
 
 	if PyList_CheckExact(p)
 	{
