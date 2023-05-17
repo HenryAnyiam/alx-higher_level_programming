@@ -25,7 +25,7 @@ void print_python_bytes(PyObject *p)
 			hold = PyBytes_AsString(p)[i];
 			if (i == 9)
 				hold = '\0';
-			printf("%02x", PyBytes_AsString(p)[i]);
+			printf("%02x", hold);
 			if (i < (num - 1))
 				printf(" ");
 			else
