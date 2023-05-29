@@ -80,7 +80,7 @@ void print_python_list(PyObject *p)
 void print_python_float(PyObject *p)
 {
 	char buf[1024];
-	int i;
+	int i, a = 0;
 
 	fflush(stdout);
 	printf("[.] float object info\n");
@@ -98,6 +98,14 @@ void print_python_float(PyObject *p)
 		{
 			printf("%c", buf[i]);
 			i++;
+			if (buf[i] == '0' && buf[i + 1] != '\0')
+				a = i;
+			while (buf[i] == '0' && buf[i + 1] != '\0')
+				i++;
+			if ((buf[i] >= '1' && buf[i] <= '9') && a != 0)
+				for ( ; a < i; a++)
+					printf("%c", buf[a]);
+			a = 0;
 		}
 		printf("\n");
 	}
