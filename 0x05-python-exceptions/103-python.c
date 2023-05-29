@@ -79,11 +79,27 @@ void print_python_list(PyObject *p)
  */
 void print_python_float(PyObject *p)
 {
+	char buf[1024];
+	int i;
+
 	fflush(stdout);
 	printf("[.] float object info\n");
 	if PyFloat_CheckExact(p)
 	{
-		printf("  value: %f\n", PyFloat_AsDouble(p));
+		sprintf(buf, "%.15f", (((PyFloatObject *)(p))->ob_fval));
+		printf("  value: ");
+		for (i = 0; buf[i] != '.'; i++)
+			printf("%c", buf[i]);
+		printf("%c", buf[i]);
+		i++;
+		printf("%c", buf[i]);
+		i++;
+		while (buf[i] != '0' && buf[i] != '\0')
+		{
+			printf("%c", buf[i]);
+			i++;
+		}
+		printf("\n");
 	}
 	else
 		printf("  [ERROR] Invalid Float Object\n");
