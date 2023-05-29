@@ -98,8 +98,6 @@ void print_python_float(PyObject *p)
 		{
 			printf("%c", buf[i]);
 			i++;
-			while (buf[i] == '0' && buf[i + 1] != '\0')
-				i++;
 		}
 		printf("\n");
 	}
