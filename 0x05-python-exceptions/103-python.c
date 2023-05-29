@@ -80,7 +80,7 @@ void print_python_list(PyObject *p)
 void print_python_float(PyObject *p)
 {
 	fflush(stdout);
-	printf("[*] Python list info\n");
+	printf("[.] float object info\n");
 	if PyFloat_CheckExact(p)
 	{
 		printf("  value: %f\n", PyFloat_AsDouble(p));
