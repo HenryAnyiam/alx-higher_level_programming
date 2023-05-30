@@ -38,7 +38,7 @@ class Node:
             setter checks if data is a next node object or None
 
             """
-            
+
             return self.__next_node
 
         @next_node.setter
