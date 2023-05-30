@@ -60,7 +60,11 @@ class SinglyLinkedList:
         self.__values = ""
 
     def __str__(self):
-        """initializes string print out for linked list"""
+        """initializes string print out for linked list
+
+        Returns:
+            final string
+        """
 
         for i in range(len(self.__vals)):
             self.__values += str(self.__vals[i])
