@@ -60,6 +60,8 @@ class SinglyLinkedList:
         self.__values = ""
 
     def __str__(self):
+        """initializes string print out for linked list"""
+
         for i in range(len(self.__vals)):
             self.__values += str(self.__vals[i])
             if i != (len(self.__vals) - 1):
@@ -73,6 +75,7 @@ class SinglyLinkedList:
             value: value to be added
 
         """
+
         self.__head.append(Node(value))
         self.__vals.append(value)
         self.__vals.sort()
