@@ -2,14 +2,22 @@
 """Build class to match python bytecode"""
 
 import math
+
+
 class MagicClass:
     """class MagicClass to match bytecode"""
 
-    def __init__(self):
+    def __init__(self, radius):
         """initialize MagicClass"""
 
-        self.__radius = 0
+        self.radius = radius
 
+    @property
+    def radius(self):
+        return self.__radius
+
+    @radius.setter
+    def radius(self):
         if type(radius) is not int or type(radius) is not float:
             raise TypeError('radius must be a number')
         else:
