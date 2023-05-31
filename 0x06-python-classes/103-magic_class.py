@@ -7,13 +7,19 @@ import math
 class MagicClass:
     """class MagicClass to match bytecode"""
 
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         """initialize MagicClass"""
 
-        self.radius = radius
+        self.__radius = radius
 
     @property
     def radius(self):
+        """gets private attribute radius
+
+        setter checks if radius is int or float
+
+        """
+
         return self.__radius
 
     @radius.setter
