@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Build class to match python bytecode"""
 
-
+import math
 class MagicClass:
     """class MagicClass to match bytecode"""
 
