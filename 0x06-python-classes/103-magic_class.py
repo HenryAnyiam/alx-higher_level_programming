@@ -23,7 +23,7 @@ class MagicClass:
         return self.__radius
 
     @radius.setter
-    def radius(self):
+    def radius(self, radius):
         if type(radius) is not int or type(radius) is not float:
             raise TypeError('radius must be a number')
         else:
