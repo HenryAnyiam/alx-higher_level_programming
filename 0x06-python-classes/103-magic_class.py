@@ -10,7 +10,7 @@ class MagicClass:
     def __init__(self, radius=0):
         """initialize MagicClass"""
 
-        self.__radius = radius
+        self.radius = radius
 
     @property
     def radius(self):
@@ -24,8 +24,8 @@ class MagicClass:
 
     @radius.setter
     def radius(self, radius):
-        if type(radius) is not int and type(radius) is not float:
-            raise TypeError('radius must be a number')
+        if (type(radius) is not int) and (type(radius) is not float):
+            raise TypeError("radius must be a number")
         else:
             self.__radius = radius
 
