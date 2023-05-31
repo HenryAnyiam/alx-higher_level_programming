@@ -56,7 +56,7 @@ class Square:
         """
 
         return self.__size >= other.__size
-    
+
     def __le__(self, other):
         """answers to less than or equals to
 
