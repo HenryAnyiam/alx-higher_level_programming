@@ -1,0 +1,4 @@
+2
+
+The integer object 0 is created as part of interpreter initialization,
+then the integer object 1 is created when executing the first line
