@@ -29,19 +29,29 @@ def solve_nqueens():
     for i in range(p_sol):
         main.append([])
     j = 0
+    p = 0
+    check = 0
     while j < N:
         sol = []
         sol.append(j)
-        p = 0
         k = 0
         while k < N:
             if j != k and k != abs(j - (N - 1)):
                 sol.append(k)
                 main[p].append(sol.copy())
-                p += 1
+                if check == 0:
+                    p += 1
+                else:
+                    p -= 1
                 sol.pop()
             k += 1
         j += 1
+        if j % 2 == 1:
+            check = 1
+            p -= 1
+        else:
+            check = 0
+            p += 1
     return main
 
 
