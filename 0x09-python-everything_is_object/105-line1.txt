@@ -1,5 +1,4 @@
-0
+2
 
-In Cpython implementation of python3, integers from -5 to 256 are pre allocated,
-therefore  any variable referencing within that range simply points to an existing object,
-No new object is created
+The integer object 0 is created as part of interpreter initialization,
+then the integer object 1 is created when executing the first line
