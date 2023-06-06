@@ -1,0 +1,34 @@
+The ``4-print_square`` module
+======================
+
+Using ``print_square``
+-------------------
+
+This is a doctest test file to test the print_square function in
+the module 4-print_square.
+
+	>>> print_square = __import__('4-print_square').print_square
+	>>> print_square(4)
+	####
+	####
+	####
+	####
+	>>> print_square(1)
+	#
+	>>> print_square(0)
+	<BLANKLINE>
+	>>> try:
+    	...	print_square(-1)
+	... except Exception as e:
+	...	print(e)
+	size must be >= 0
+	>>> try:
+    	...	print_square("Hello")
+	... except Exception as e:
+	...	print(e)
+	size must be an integer
+	>>> try:
+    	...	print_square(8.3)
+	... except Exception as e:
+	...	print(e)
+	size must be an integer

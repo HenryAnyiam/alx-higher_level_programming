@@ -1,0 +1,21 @@
+The ``3-say_my_name`` module
+======================
+
+Using ``say_my_name``
+-------------------
+
+This is a doctest test file to test the say_my_name function in
+the module 3-say_my_name.
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> say_my_name("John", "Smith")
+	My name is John Smith
+	>>> say_my_name("Walter", "White")
+	My name is Walter White
+	>>> say_my_name("Bob")
+	My name is Bob 
+	>>> try:
+	...	say_my_name(12, "White")
+	... except Exception as e:
+	...     print(e)
+	first_name must be a string

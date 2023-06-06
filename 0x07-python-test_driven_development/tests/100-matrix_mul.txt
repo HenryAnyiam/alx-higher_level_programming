@@ -1,0 +1,29 @@
+The ``100-matrix_mul`` module
+======================
+
+Using ``matrix_mul``
+-------------------
+
+This is a doctest test file to test the matrix_mul function in
+the module 100-matrix_mul.
+
+	>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+	>>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+	[[7, 10], [15, 22]]
+	>>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+	[[13, 16]]
+	>>> try:
+    	...	print(matrix_mul([[1, 2]], "Hello"))
+	... except Exception as e:
+	...	print(e)
+	m_b must be a list
+	>>> try:
+    	...	print(matrix_mul([], "Hello"))
+	... except Exception as e:
+	...	print(e)
+	m_b must be a list
+	>>> try:
+    	...	print(matrix_mul([], []))
+	... except Exception as e:
+	...	print(e)
+	m_a can't be empty
