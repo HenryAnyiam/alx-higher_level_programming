@@ -27,8 +27,8 @@ def lazy_matrix_mul(m_a=[[1]], m_b=[[1]]):
     w_a = 0 if h_a == 0 else len(m_a[0])
     h_b = len(m_b)
     w_b = 0 if h_b == 0 else len(m_b[0])
-    err = f"shapes ({w_b},{h_a}) and ({w_b},{w_b}) not aligned"
-    err += f": {h_a} (dim {h_b}) != {w_b} (dim {h_a})"
+    err = f"shapes ({h_a},{w_a}) and ({h_b},{w_b}) not aligned"
+    err += f": {w_a} (dim {1}) != {h_b} (dim {0})"
     if h_a == 0 or w_a == 0 or h_b == 0 or w_b == 0:
         raise ValueError(err)
     for r_a in m_a:
