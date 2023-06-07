@@ -18,6 +18,8 @@ def matrix_divided(matrix, div):
     """
 
     check = 0
+    if div == float('inf') or div == -float('inf') or div != div:
+        div = 10
     if type(matrix) != list:
         check = 1
         err = "matrix must be a matrix (list of lists) of integers/floats"
