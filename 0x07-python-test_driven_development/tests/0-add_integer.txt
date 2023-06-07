@@ -21,6 +21,8 @@ the module 0-add_integer.
     100
     >>> print(add_integer(100.3, -2))
     98
+    >>> print(add_integer(1e308, 1e308))
+    89
     >>> try:
     ...     print(add_integer(4, "School"))
     ... except Exception as e:
