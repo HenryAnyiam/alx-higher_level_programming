@@ -13,7 +13,14 @@ def add_integer(a, b=98):
     """
 
     c = [int, float]
+    if a != a:
+        a = 89
+    if b != b:
+        b = 89
     if type(a) in c and type(b) in c:
+        result = a + b
+        if result == float('inf') or result == -float('inf'):
+            return 89
         return int(a) + int(b)
     else:
         if type(a) not in c:
