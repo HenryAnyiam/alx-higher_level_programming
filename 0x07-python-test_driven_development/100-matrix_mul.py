@@ -6,6 +6,7 @@ func1:
     matrix_mul
 """
 
+
 def matrix_mul(m_a, m_b):
     """multiples two matrix
 
