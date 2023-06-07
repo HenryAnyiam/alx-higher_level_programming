@@ -7,7 +7,7 @@ func1:
 """
 
 
-def matrix_mul(m_a, m_b):
+def matrix_mul(m_a=[[1]], m_b=[[1]]):
     """multiples two matrix
 
     Args:
@@ -27,7 +27,7 @@ def matrix_mul(m_a, m_b):
             raise TypeError("m_a must be a list of lists")
     for i in m_b:
         if type(i) != list:
-            raise TypeError("m_b must be a list of list")
+            raise TypeError("m_b must be a list of lists")
     if len(m_a) == 0 or len(m_a[0]) == 0:
         raise ValueError("m_a can't be empty")
     if len(m_b) == 0 or len(m_b[0]) == 0:
