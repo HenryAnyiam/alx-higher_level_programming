@@ -8,7 +8,7 @@ functions:
 """
 
 
-def print_square(size):
+def print_square(size=10):
     """ prints # in square to stdout
 
     Args:

@@ -36,3 +36,14 @@ the module 4-print_square.
         ... except Exception as e:
         ...     print(e)
         size must be an integer
+	>>> print_square()
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
