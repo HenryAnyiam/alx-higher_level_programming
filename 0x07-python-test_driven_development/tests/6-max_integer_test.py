@@ -4,6 +4,7 @@
 import unittest
 max_integer = __import__('6-max_integer').max_integer
 
+
 class TestMaxInteger(unittest.TestCase):
     """ Test class for the function maxinteger
 
@@ -32,14 +33,14 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer("Hello"), 'o')
         self.assertEqual(max_integer("HellO"), 'l')
         self.assertEqual(max_integer("14325"), '5')
-        self.assertEqual(max_integer({1:8, 2:4, 0:10}), 10)
+        self.assertEqual(max_integer({1: 8, 2: 4, 0: 10}), 10)
 
     def test_error(self):
         """Tests with possible error cases"""
 
         self.assertRaises(TypeError, max_integer, None)
         self.assertRaises(TypeError, max_integer, 1543)
-        self.assertRaises(KeyError, max_integer, {1:8, 4:4, 0:10})
+        self.assertRaises(KeyError, max_integer, {1: 8, 4: 4, 0: 10})
 
     def test_empty(self):
         """Tests with empty lists"""
