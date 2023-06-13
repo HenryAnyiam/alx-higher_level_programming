@@ -6,6 +6,8 @@ func:
     is_same_class
 
 """
+
+
 def is_same_class(obj, a_class):
     """checks if obj is of type a_class
 
