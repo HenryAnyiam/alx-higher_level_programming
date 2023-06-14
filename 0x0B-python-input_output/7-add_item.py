@@ -22,10 +22,8 @@ except FileNotFoundError:
 else:
     for i in obj:
         items.append(i)
-print(items)
 args = sys.argv
 if len(args) > 1:
     for i in range(1, len(args)):
         items.append(args[i])
-print(items)
 save_to_json_file(items, "add_item.json")
