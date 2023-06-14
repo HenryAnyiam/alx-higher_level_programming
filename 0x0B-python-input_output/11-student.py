@@ -29,3 +29,10 @@ class Student:
         if "age" in attrs:
             dic["age"] = self.age
         return dic
+
+    def reload_from_json(self, json):
+        """replaces attributes of student instance"""
+
+        self.first_name = json["first_name"]
+        self.last_name = json["last_name"]
+        self.age = json["age"]
