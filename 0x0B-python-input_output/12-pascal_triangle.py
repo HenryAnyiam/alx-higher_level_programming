@@ -21,6 +21,8 @@ def pascal_triangle(n):
     """
 
     main = [[1]]
+    if n <= 0:
+        return []
     for i in range(1, n):
         first = 0
         second = main[i - 1][0]
