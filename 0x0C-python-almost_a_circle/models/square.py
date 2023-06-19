@@ -1,9 +1,13 @@
 #!/usr/bin/python3
 
+"""square module with Square class"""
+
+
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """building new class inheriting from Rectangle"""
 
     def __init__(self, size, x=0, y=0, id=None):
         """initialization of class Square
