@@ -65,7 +65,9 @@ class Base:
         """loads a new class instance from saved file"""
 
         with open(f"{cls.__name__}.json", encoding="UTF-8") as MyFile:
-            obj = json.load(MyFile)
+            obj = []
+            for line in MyFile:
+                obj = cls.from_json_string(line)
             objs = []
             for i in obj:
                 objs.append(cls.create(**i))
