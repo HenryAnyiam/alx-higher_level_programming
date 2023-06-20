@@ -100,13 +100,13 @@ class Base:
         objs = []
         for i in data:
             load_data = {}
-            load_data["id"] = i[0]
-            load_data["x"] = i[-2]
-            load_data["y"] = i[-1]
+            load_data["id"] = eval(i[0])[1]
+            load_data["x"] = eval(i[-2])[1]
+            load_data["y"] = eval(i[-1])[1]
             if cls.__name__ == "Square":
-                load_data["size"] = i[1]
+                load_data["size"] = eval(i[1])[1]
             else:
-                load_data["width"] = i[1]
-                load_data["height"] = i[2]
+                load_data["width"] = eval(i[1])[1]
+                load_data["height"] = eval(i[2])[1]
             objs.append(cls.create(**load_data))
         return objs
