@@ -64,17 +64,13 @@ class Base:
     def load_from_file(cls):
         """loads a new class instance from saved file"""
 
-        try:
-            MyFile = open(f"{cls.__name__}.json", encoding="UTF-8")
-        except FileNotFoundError:
-            return None
-        else:
+        with open(f"{cls.__name__}.json", encoding="UTF-8") as MyFile:
             obj = json.load(MyFile)
-            MyFile.close()
             objs = []
             for i in obj:
                 objs.append(cls.create(**i))
             return objs
+        return None
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
@@ -92,15 +88,10 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         data = []
-        try:
-            MyFile = open(f"{cls.__name__}.csv", encoding="UTF-8")
-        except FileNotFoundError:
-            return None
-        else:
+        with open(f"{cls.__name__}.csv", encoding="UTF-8") as MyFile:
             obj = csv.reader(MyFile)
             for line in obj:
                 data.append(line)
-            MyFile.close()
         objs = []
         for i in data:
             load_data = {}
