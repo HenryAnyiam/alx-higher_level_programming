@@ -64,7 +64,11 @@ class Base:
     def load_from_file(cls):
         """loads a new class instance from saved file"""
 
-        with open(f"{cls.__name__}.json", encoding="UTF-8") as MyFile:
+        try:
+            MyFile = open(f"{cls.__name__}.json", encoding="UTF-8")
+        except FileNotFoundError:
+            return None
+        else:
             obj = []
             for line in MyFile:
                 obj = cls.from_json_string(line)
@@ -72,7 +76,6 @@ class Base:
             for i in obj:
                 objs.append(cls.create(**i))
             return objs
-        return None
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
