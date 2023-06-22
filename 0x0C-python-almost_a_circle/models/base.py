@@ -57,7 +57,7 @@ class Base:
     def create(cls, **dictionary):
         """creates a new class instance with given **kwargs"""
 
-        dummy = cls(3, 1, 1)
+        dummy = cls(3, 1)
         dummy.update(**dictionary)
         return dummy
 
