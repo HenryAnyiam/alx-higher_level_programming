@@ -58,6 +58,8 @@ class Base:
         """creates a new class instance with given **kwargs"""
 
         dummy = cls(3, 1)
+        if (cls.__name__ == "Square"):
+            dummy = cls(3)
         dummy.update(**dictionary)
         return dummy
 
