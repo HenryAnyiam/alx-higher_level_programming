@@ -71,8 +71,8 @@ class Base:
         try:
             MyFile = open(f"{cls.__name__}.json", encoding="UTF-8")
         except FileNotFoundError:
-            return None
-        else:
+            return []
+        else
             obj = []
             for line in MyFile:
                 obj = cls.from_json_string(line)
