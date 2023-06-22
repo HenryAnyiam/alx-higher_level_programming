@@ -5,6 +5,7 @@
 import json
 import csv
 
+
 class Base:
     """building class Base"""
 
@@ -85,7 +86,7 @@ class Base:
                 data.append(i.to_dictionary())
         save_data = []
         for i in data:
-            save_data.append(list(i.items()))
+            save_data.append(list(i.values()))
         with open(f"{cls.__name__}.csv", "w", encoding="UTF-8") as MyFile:
             obj = csv.writer(MyFile)
             obj.writerows(save_data)
@@ -100,13 +101,13 @@ class Base:
         objs = []
         for i in data:
             load_data = {}
-            load_data["id"] = eval(i[0])[1]
-            load_data["x"] = eval(i[-2])[1]
-            load_data["y"] = eval(i[-1])[1]
+            load_data["id"] = int(i[0])
+            load_data["x"] = int(i[-2])
+            load_data["y"] = int(i[-1])
             if cls.__name__ == "Square":
-                load_data["size"] = eval(i[1])[1]
+                load_data["size"] = int(i[1])
             else:
-                load_data["width"] = eval(i[1])[1]
-                load_data["height"] = eval(i[2])[1]
+                load_data["width"] = int(i[1])
+                load_data["height"] = int(i[2])
             objs.append(cls.create(**load_data))
         return objs
