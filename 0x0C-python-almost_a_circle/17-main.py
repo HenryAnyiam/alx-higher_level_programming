@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ 17-main """
 from models.rectangle import Rectangle
-
+from models.square import Square
 if __name__ == "__main__":
 
     r1 = Rectangle(3, 5, 1)
