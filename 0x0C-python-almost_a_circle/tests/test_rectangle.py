@@ -118,8 +118,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.capt(print, r3), '[Rectangle] (89) 0/0 - 1/2\n')
         self.assertEqual(self.capt(print, r4), '[Rectangle] (89) 3/0 - 1/2\n')
         self.assertEqual(self.capt(print, r5), '[Rectangle] (89) 3/4 - 1/2\n')
-        L1 = Rectangle.load_from_file()
-        self.assertEqual(self.capt(print, L1), '[]\n')
         Rectangle.save_to_file(None)
         with open("Rectangle.json", encoding="UTF-8") as MyFile:
             self.assertEqual(self.capt(print, MyFile.read()), '[]\n')

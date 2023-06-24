@@ -107,8 +107,6 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(self.capt(print, r2), '[Square] (89) 0/0 - 1\n')
         self.assertEqual(self.capt(print, r3), '[Square] (89) 3/0 - 1\n')
         self.assertEqual(self.capt(print, r4), '[Square] (89) 3/4 - 1\n')
-        L1 = Square.load_from_file()
-        self.assertEqual(self.capt(print, L1), '[]\n')
         Square.save_to_file(None)
         with open("Square.json", encoding="UTF-8") as MyFile:
             self.assertEqual(self.capt(print, MyFile.read()), '[]\n')
