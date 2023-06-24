@@ -76,6 +76,7 @@ class Base:
             obj = []
             for line in MyFile:
                 obj = cls.from_json_string(line)
+            MyFile.close()
             objs = []
             for i in obj:
                 objs.append(cls.create(**i))

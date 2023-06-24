@@ -107,6 +107,8 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(self.capt(print, r2), '[Square] (89) 0/0 - 1\n')
         self.assertEqual(self.capt(print, r3), '[Square] (89) 3/0 - 1\n')
         self.assertEqual(self.capt(print, r4), '[Square] (89) 3/4 - 1\n')
+        L1 = Square.load_from_file()
+        self.assertEqual(self.capt(print, L1), '[]\n')
         Square.save_to_file(None)
         with open("Square.json", encoding="UTF-8") as MyFile:
             self.assertEqual(self.capt(print, MyFile.read()), '[]\n')
@@ -114,6 +116,9 @@ class TestSquare(unittest.TestCase):
         with open("Square.json", encoding="UTF-8") as MyFile:
             self.assertEqual(self.capt(print, MyFile.read()), '[]\n')
         Square.save_to_file([Square(1)])
-        dic = '[{"id": 24, "size": 1, "x": 0, "y": 0}]\n'
+        dic = '[{"id": 25, "size": 1, "x": 0, "y": 0}]\n'
         with open("Square.json", encoding="UTF-8") as MyFile:
             self.assertEqual(self.capt(print, MyFile.read()), dic)
+        L2 = Square.load_from_file()
+        dic = '[Square] (25) 0/0 - 1\n'
+        self.assertEqual(self.capt(print, L2[0]), dic)
