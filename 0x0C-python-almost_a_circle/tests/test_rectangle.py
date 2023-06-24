@@ -59,14 +59,71 @@ class TestRectangle(unittest.TestCase):
             Rectangle(1, 2, 3, -4)
 
     def test_methods(self):
-        """Test for various rectangle methods"""
+        """Test for various rectangle methods
+
+        Methods:
+            area()
+            display()
+            __str__
+            to_dictionary()
+            update()
+
+        """
 
         r1 = Rectangle(4, 6, 2, 1, 2)
         r2 = Rectangle(2, 2)
         r3 = Rectangle(3, 2, 1)
         r4 = Rectangle(3, 2, 1, 1)
+        dic = {'x': 2, 'y': 1, 'id': 2, 'height': 6, 'width': 4}
         self.assertEqual(r1.area(), 24)
         self.assertEqual(self.capt(print, r1), '[Rectangle] (2) 2/1 - 4/6\n')
         self.assertEqual(self.capt(r2.display), '##\n##\n')
         self.assertEqual(self.capt(r3.display), ' ###\n ###\n')
         self.assertEqual(self.capt(r4.display), '\n ###\n ###\n')
+        self.assertEqual(r1.to_dictionary(), dic)
+        r1.update()
+        self.assertEqual(self.capt(print, r1), '[Rectangle] (2) 2/1 - 4/6\n')
+        r1.update(89)
+        self.assertEqual(self.capt(print, r1), '[Rectangle] (89) 2/1 - 4/6\n')
+        r1.update(89, 1)
+        self.assertEqual(self.capt(print, r1), '[Rectangle] (89) 2/1 - 1/6\n')
+        r1.update(89, 1, 2)
+        self.assertEqual(self.capt(print, r1), '[Rectangle] (89) 2/1 - 1/2\n')
+        r1.update(89, 1, 2, 3)
+        self.assertEqual(self.capt(print, r1), '[Rectangle] (89) 3/1 - 1/2\n')
+        r1.update(89, 1, 2, 3, 4)
+        self.assertEqual(self.capt(print, r1), '[Rectangle] (89) 3/4 - 1/2\n')
+        r2.update(**{'id': 89})
+        self.assertEqual(self.capt(print, r2), '[Rectangle] (89) 0/0 - 2/2\n')
+        r2.update(**{'id': 89, 'width': 1})
+        self.assertEqual(self.capt(print, r2), '[Rectangle] (89) 0/0 - 1/2\n')
+        r2.update(**{'id': 89, 'width': 1, 'height': 2})
+        self.assertEqual(self.capt(print, r2), '[Rectangle] (89) 0/0 - 1/2\n')
+        r2.update(**{'id': 89, 'width': 1, 'height': 2, 'x': 3})
+        self.assertEqual(self.capt(print, r2), '[Rectangle] (89) 3/0 - 1/2\n')
+        r2.update(**{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+        self.assertEqual(self.capt(print, r2), '[Rectangle] (89) 3/4 - 1/2\n')
+
+    def test_more_methods(self):
+        """Tests more Rectangle methods"""
+
+        r1 = Rectangle.create(**{'id': 89})
+        r2 = Rectangle.create(**{'id': 89, 'width': 1})
+        r3 = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2}) 
+        r4 = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3})
+        r5 = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+        self.assertEqual(self.capt(print, r1), '[Rectangle] (89) 0/0 - 3/1\n')
+        self.assertEqual(self.capt(print, r2), '[Rectangle] (89) 0/0 - 1/1\n')
+        self.assertEqual(self.capt(print, r3), '[Rectangle] (89) 0/0 - 1/2\n')
+        self.assertEqual(self.capt(print, r4), '[Rectangle] (89) 3/0 - 1/2\n')
+        self.assertEqual(self.capt(print, r5), '[Rectangle] (89) 3/4 - 1/2\n')
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", encoding="UTF-8") as MyFile:
+            self.assertEqual(self.capt(print, MyFile.read()), '[]\n')
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", encoding="UTF-8") as MyFile:
+            self.assertEqual(self.capt(print, MyFile.read()), '[]\n')
+        Rectangle.save_to_file([Rectangle(1, 2)])
+        dic = '[{"id": 14, "width": 1, "height": 2, "x": 0, "y": 0}]\n'
+        with open("Rectangle.json", encoding="UTF-8") as MyFile:
+            self.assertEqual(self.capt(print, MyFile.read()), dic)
