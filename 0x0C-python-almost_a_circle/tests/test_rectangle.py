@@ -8,4 +8,5 @@ from models.square import Square
 
 class TestRectangle(unittest.TestCase):
 
-
+    def test_id(self):
+        pass
