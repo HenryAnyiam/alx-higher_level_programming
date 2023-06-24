@@ -109,9 +109,10 @@ class TestRectangle(unittest.TestCase):
 
         r1 = Rectangle.create(**{'id': 89})
         r2 = Rectangle.create(**{'id': 89, 'width': 1})
-        r3 = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2}) 
+        r3 = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2})
         r4 = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3})
-        r5 = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+        dic = {'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4}
+        r5 = Rectangle.create(**dic)
         self.assertEqual(self.capt(print, r1), '[Rectangle] (89) 0/0 - 3/1\n')
         self.assertEqual(self.capt(print, r2), '[Rectangle] (89) 0/0 - 1/1\n')
         self.assertEqual(self.capt(print, r3), '[Rectangle] (89) 0/0 - 1/2\n')
