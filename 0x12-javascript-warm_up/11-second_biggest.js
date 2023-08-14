@@ -2,9 +2,11 @@
 const { argv } = require('process');
 const myArray = argv.slice(2);
 const length = argv.length;
+let digit;
 if (length < 4) {
   console.log(0);
 } else {
   myArray.sort(function (a, b) { return (a - b); });
-  console.log(myArray[myArray.length - 1]);
+  digit = myArray[myArray.length - 1];
+  console.log(Number(digit));
 }
