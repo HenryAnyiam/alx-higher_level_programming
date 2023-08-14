@@ -7,6 +7,6 @@ if (length < 4) {
   console.log(0);
 } else {
   myArray.sort(function (a, b) { return (a - b); });
-  digit = myArray[myArray.length - 1];
+  digit = myArray[myArray.length - 2];
   console.log(Number(digit));
 }
