@@ -19,15 +19,17 @@ const Rectangle = class {
       }
     }
   }
+
   double () {
     if (!(isNaN(this.width))) {
       this.width *= 2;
       this.height *= 2;
     }
   }
+
   rotate () {
-    let myW = this.width;
-    let myH = this.height;
+    const myW = this.width;
+    const myH = this.height;
     if (!(isNaN(this.width))) {
       this.width = myH;
       this.height = myW;
