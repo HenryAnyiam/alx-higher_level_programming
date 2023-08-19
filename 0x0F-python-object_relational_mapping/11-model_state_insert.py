@@ -3,6 +3,7 @@
 from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.sql import func
 from sys import argv
 
 
@@ -11,8 +12,7 @@ if __name__ == "__main__":
                            .format(argv[1], argv[2], argv[3]))
     Session = sessionmaker(bind=engine)
     session = Session()
-    instance = session.query(State).order_by(State.id).first()
-    try:
-        print(f"{instance.id}: {instance.name}")
-    except AttributeError:
-        print("Nothing")
+    new = State(name="Louisiana")
+    session.add(new)
+    session.commit()
+    print(new.id)
