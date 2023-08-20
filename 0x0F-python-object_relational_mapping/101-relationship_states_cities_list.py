@@ -12,7 +12,7 @@ if __name__ == "__main__":
                            .format(argv[1], argv[2], argv[3]))
     Session = sessionmaker(bind=engine)
     session = Session()
-    Query = session.query(State).join(City).order_by(State.id, City.id).all()
+    Query = session.query(State).order_by(State.id)
     for state in Query:
         print(f"{state.id}: {state.name}")
         for city in state.cities:
