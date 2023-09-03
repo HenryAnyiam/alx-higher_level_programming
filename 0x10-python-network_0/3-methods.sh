@@ -1,3 +1,3 @@
 #!/bin/bash
 #send an OPTIONS request
-curl -sX OPTIONS $1;
+curl -sI $1 | grep 'Allow' | cut -d " " -f2-
