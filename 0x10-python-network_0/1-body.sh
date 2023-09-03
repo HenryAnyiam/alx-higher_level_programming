@@ -1,3 +1,3 @@
 #!/bin/bash
-#takes a URL, sends a request to it and displays the size
+#send a GET request and display the response body
 curl -s -L $1;
