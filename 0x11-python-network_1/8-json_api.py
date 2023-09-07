@@ -15,7 +15,7 @@ if __name__ == "__main__":
     res = requests.post('http://0.0.0.0:5000/search_user', data={'q': val})
     try:
         data = res.json()
-    except requests.exceptions.JSONDecodeError:
+    except:
         print('Not a valid JSON')
     else:
         if len(data) > 0:
