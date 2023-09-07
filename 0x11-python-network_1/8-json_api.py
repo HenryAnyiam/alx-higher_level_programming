@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""module using requests to send HTTP requests"""
+"""
+module using requests to send HTTP requests
+sends a POST request http://0.0.0.0:5000/search_user
+"""
 
 import requests
 from sys import argv
@@ -16,6 +19,6 @@ if __name__ == "__main__":
         print('Not a valid JSON')
     else:
         if len(data) > 0:
-            print(f'[{data.get('id')}] {data.get('name')}')
+            print(f"[{data.get('id')}] {data.get('name')}")
         else:
             print('No result')
