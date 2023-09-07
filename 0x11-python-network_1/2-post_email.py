@@ -7,10 +7,10 @@ from sys import argv
 
 
 if __name__ == '__main__':
-    data = {'email' : argv[2]}
+    data = {'email': argv[2]}
     data = urlencode(data)
     data = data.encode('ascii')
     req = Request(argv[1], data)
-    with urlopen(req) as respose:
+    with urlopen(req) as response:
         res = response.read().decode('utf-8')
     print(res)
