@@ -2,7 +2,7 @@
 const request = require('request');
 const result = {};
 let data;
-let id = 1;
+let id;
 let count = 0;
 let i;
 
@@ -12,6 +12,7 @@ request.get(process.argv[2], function (error, response, body) {
     return;
   }
   data = JSON.parse(body);
+  id = data[0].userId;
   for (i in data) {
     if (data[i].userId === id) {
       if (data[i].completed === true) {
@@ -19,7 +20,7 @@ request.get(process.argv[2], function (error, response, body) {
       }
     } else {
       result[id] = count;
-      id += 1;
+      id = data[i].userId;
       count = 0;
       if (data[i].completed === true) {
         count += 1;
