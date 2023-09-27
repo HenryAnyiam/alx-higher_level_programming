@@ -19,7 +19,9 @@ request.get(process.argv[2], function (error, response, body) {
         count += 1;
       }
     } else {
-      result[id] = count;
+      if (count != 0) {
+        result[id] = count;
+      }
       id = data[i].userId;
       count = 0;
       if (data[i].completed === true) {
@@ -27,6 +29,8 @@ request.get(process.argv[2], function (error, response, body) {
       }
     }
   }
-  result[id] = count;
+  if (count != 0) {
+    result[id] = count;
+  }
   console.log(result);
 });
