@@ -19,8 +19,12 @@ request.get(process.argv[2], function (error, response, body) {
         count += 1;
       }
     } else {
-      if (count != 0) {
-        result[id] = count;
+      if (count !== 0) {
+        if (id in result) {
+          result[id] += count;
+	} else {
+          result[id] = count;
+	}
       }
       id = data[i].userId;
       count = 0;
@@ -29,8 +33,12 @@ request.get(process.argv[2], function (error, response, body) {
       }
     }
   }
-  if (count != 0) {
-    result[id] = count;
+  if (count !== 0) {
+    if (id in result) {
+      result[id] += count;
+    } else {
+      result[id] = count;
+    }
   }
   console.log(result);
 });
