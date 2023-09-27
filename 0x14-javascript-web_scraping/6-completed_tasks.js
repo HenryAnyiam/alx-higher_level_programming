@@ -21,6 +21,9 @@ request.get(process.argv[2], function (error, response, body) {
       result[id] = count;
       id += 1;
       count = 0;
+      if (data[i].completed === true) {
+        count += 1;
+      }
     }
   }
   result[id] = count;
