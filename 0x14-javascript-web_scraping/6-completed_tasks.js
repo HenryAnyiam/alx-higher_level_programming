@@ -22,9 +22,9 @@ request.get(process.argv[2], function (error, response, body) {
       if (count !== 0) {
         if (id in result) {
           result[id] += count;
-	} else {
+        } else {
           result[id] = count;
-	}
+        }
       }
       id = data[i].userId;
       count = 0;
