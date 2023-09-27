@@ -12,7 +12,9 @@ request.get(process.argv[2], function (error, response, body) {
     return;
   }
   data = JSON.parse(body);
-  id = data[0].userId;
+  if (data[0] !== undefined) {
+    id = data[0].userId;
+  }
   for (i in data) {
     if (data[i].userId === id) {
       if (data[i].completed === true) {
